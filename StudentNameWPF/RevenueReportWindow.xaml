@@ -60,7 +60,7 @@
                     SelectedDate="{Binding EndDate, Mode=TwoWay, Converter={StaticResource DateTimeToDateOnlyConverter}}" />
                 <Button
                     Grid.Column="4"
-                    Width="120"
+                    Width="160"
                     Height="30"
                     Command="{Binding GenerateReportCommand}"
                     Content="Generate Report" />
@@ -90,11 +90,11 @@
             ItemsSource="{Binding ReportItems}">
             <DataGrid.Columns>
                 <DataGridTextColumn
-                    Width="120"
+                    Width="150"
                     Binding="{Binding Date, StringFormat=d}"
                     Header="Date" />
                 <DataGridTextColumn
-                    Width="150"
+                    Width="190"
                     Binding="{Binding BookingCount}"
                     Header="Number of Bookings" />
                 <DataGridTextColumn
@@ -102,7 +102,7 @@
                     Binding="{Binding Revenue, StringFormat=C}"
                     Header="Total Revenue" />
                 <DataGridTextColumn
-                    Width="200"
+                    Width="300"
                     Binding="{Binding AverageRevenue, StringFormat=C}"
                     Header="Average Revenue Per Booking" />
             </DataGrid.Columns>
@@ -114,15 +114,17 @@
             HorizontalAlignment="Right"
             Orientation="Horizontal">
             <Button
-                Width="120"
+                Width="160"
                 Height="30"
                 Margin="0,0,10,0"
                 Command="{Binding ExportToExcelCommand}"
                 Content="Export to Excel" />
-            <Button x:Name="CloseButton"
+            <Button
+                x:Name="CloseButton"
                 Width="120"
                 Height="30"
-                Content="Close" Click="CloseButton_Click" />
+                Click="CloseButton_Click"
+                Content="Close" />
         </StackPanel>
     </Grid>
 </Window>

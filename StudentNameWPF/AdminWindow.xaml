@@ -7,90 +7,127 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Admin Dashboard"
     Width="800"
-    Height="450"
+    Height="550"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
     <Grid>
         <!--  Title  -->
         <TextBlock
-            Margin="0,20,0,0"
+            Margin="0,30,0,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
-            FontSize="30"
+            FontSize="36"
             FontWeight="Bold"
-            Foreground="{DynamicResource PrimaryHueMidBrush}"
+            Foreground="{DynamicResource PrimaryHueDarkBrush}"
             Text="Admin Dashboard" />
 
         <!--  Card Container  -->
-        <materialDesign:Card
-            Width="500"
-            Margin="0,50,0,0"
-            Padding="20"
+        <StackPanel
+            Margin="0,100,0,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Background="{DynamicResource MaterialDesignPaper}">
+            Orientation="Vertical">
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-
-                <!--  Panel 1: Customer Management  -->
-                <StackPanel Grid.Row="0" Orientation="Vertical">
+            <!--  Panel 1: Customer Management  -->
+            <materialDesign:Card
+                Width="600"
+                Padding="20"
+                Background="{DynamicResource PrimaryHueLightBrush}"
+                Foreground="{DynamicResource MaterialDesignBody}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon
+                        Width="30"
+                        Height="30"
+                        Foreground="{DynamicResource PrimaryHueDarkBrush}"
+                        Kind="AccountMultiple" />
                     <Button
-                        Height="60"
-                        Background="{DynamicResource PrimaryHueLightBrush}"
-                        BorderBrush="{DynamicResource PrimaryHueLightBrush}"
-                        BorderThickness="1"
+                        Height="70"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
                         Click="ManageCustomers_Click"
                         Content="Quản lý thông tin khách hàng"
-                        FontSize="18"
+                        FontSize="20"
+                        FontWeight="Bold"
                         Foreground="{DynamicResource MaterialDesignBody}" />
                 </StackPanel>
+            </materialDesign:Card>
 
-                <!--  Panel 2: Room Management  -->
-                <StackPanel Grid.Row="1" Orientation="Vertical">
+            <!--  Panel 2: Room Management  -->
+            <materialDesign:Card
+                Width="600"
+                Padding="20"
+                Background="{DynamicResource PrimaryHueLightBrush}"
+                Foreground="{DynamicResource MaterialDesignBody}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon
+                        Width="30"
+                        Height="30"
+                        Foreground="{DynamicResource PrimaryHueDarkBrush}"
+                        Kind="Home" />
                     <Button
-                        Height="60"
-                        Background="{DynamicResource PrimaryHueLightBrush}"
-                        BorderBrush="{DynamicResource PrimaryHueLightBrush}"
-                        BorderThickness="1"
+                        Height="70"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
                         Click="ManageRooms_Click"
                         Content="Quản lý thông tin phòng"
-                        FontSize="18"
+                        FontSize="20"
+                        FontWeight="Bold"
                         Foreground="{DynamicResource MaterialDesignBody}" />
                 </StackPanel>
+            </materialDesign:Card>
 
-                <!--  Panel 3: Reservation Management  -->
-                <StackPanel Grid.Row="2" Orientation="Vertical">
+            <!--  Panel 3: Reservation Management  -->
+            <materialDesign:Card
+                Width="600"
+                Padding="20"
+                Background="{DynamicResource PrimaryHueLightBrush}"
+                Foreground="{DynamicResource MaterialDesignBody}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon
+                        Width="30"
+                        Height="30"
+                        Foreground="{DynamicResource PrimaryHueDarkBrush}"
+                        Kind="Calendar" />
                     <Button
-                        Height="60"
-                        Background="{DynamicResource PrimaryHueLightBrush}"
-                        BorderBrush="{DynamicResource PrimaryHueLightBrush}"
-                        BorderThickness="1"
+                        Height="70"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
                         Click="ManageReservations_Click"
                         Content="Quản lý đặt phòng"
-                        FontSize="18"
+                        FontSize="20"
+                        FontWeight="Bold"
                         Foreground="{DynamicResource MaterialDesignBody}" />
                 </StackPanel>
+            </materialDesign:Card>
 
-                <!--  Panel 4: Report Generation  -->
-                <StackPanel Grid.Row="3" Orientation="Vertical">
+            <!--  Panel 4: Report Generation  -->
+            <materialDesign:Card
+                Width="600"
+                Padding="20"
+                Background="{DynamicResource PrimaryHueLightBrush}"
+                Foreground="{DynamicResource MaterialDesignBody}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon
+                        Width="30"
+                        Height="30"
+                        Foreground="{DynamicResource PrimaryHueDarkBrush}"
+                        Kind="ChartBar" />
                     <Button
-                        Height="60"
-                        Background="{DynamicResource PrimaryHueLightBrush}"
-                        BorderBrush="{DynamicResource PrimaryHueLightBrush}"
-                        BorderThickness="1"
+                        Height="70"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
                         Click="GenerateReports_Click"
                         Content="Tạo báo cáo thống kê"
-                        FontSize="18"
+                        FontSize="20"
+                        FontWeight="Bold"
                         Foreground="{DynamicResource MaterialDesignBody}" />
                 </StackPanel>
-            </Grid>
-        </materialDesign:Card>
+            </materialDesign:Card>
+        </StackPanel>
     </Grid>
 </Window>

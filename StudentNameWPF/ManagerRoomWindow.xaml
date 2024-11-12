@@ -6,8 +6,8 @@
     xmlns:local="clr-namespace:StudentNameWPF"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="ManagerRoomWindow"
-    Width="800"
-    Height="450"
+    Width="1000"
+    Height="700"
     Loaded="Window_Loaded"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
@@ -24,7 +24,7 @@
         <!--  DataGrid for displaying customer info  -->
         <DataGrid
             Name="RoomDataGrid"
-            Height="250"
+            Height="530"
             Margin="0,50,0,0"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Top"
@@ -41,19 +41,19 @@
                     Binding="{Binding RoomDetailDescription}"
                     Header="Room Description" />
                 <DataGridTextColumn
-                    Width="100"
+                    Width="140"
                     Binding="{Binding RoomMaxCapacity}"
                     Header="Max Capacity" />
                 <DataGridTextColumn
-                    Width="80"
+                    Width="140"
                     Binding="{Binding RoomStatus}"
                     Header="Status" />
                 <DataGridTextColumn
-                    Width="150"
+                    Width="160"
                     Binding="{Binding RoomPricePerDay}"
                     Header="Room Price Per Day" />
                 <DataGridTextColumn
-                    Width="140"
+                    Width="170"
                     Binding="{Binding RoomType.RoomTypeName}"
                     Header="Room Type" />
             </DataGrid.Columns>

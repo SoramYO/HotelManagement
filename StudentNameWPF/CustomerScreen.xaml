@@ -144,7 +144,7 @@
                         MouseDoubleClick="BookingHistoryDataGrid_MouseDoubleClick">
                         <DataGrid.Columns>
                             <DataGridTextColumn
-                                Width="80"
+                                Width="100"
                                 Binding="{Binding BookingReservationId}"
                                 Header="Booking ID" />
                             <DataGridTextColumn

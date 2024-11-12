@@ -6,9 +6,10 @@
     xmlns:local="clr-namespace:StudentNameWPF"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="ManagerBookingReservationWindow"
-    Width="900"
-    Height="500"
+    Width="1000"
+    Height="700"
     Loaded="Window_Loaded"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
 
@@ -22,7 +23,7 @@
             Text="Booking Reservation" />
         <DataGrid
             x:Name="BookingHistoryDataGrid"
-            Height="324"
+            Height="550"
             Margin="0,50,0,0"
             VerticalAlignment="Top"
             AutoGenerateColumns="False"
