@@ -1,0 +1,142 @@
+﻿<Window
+    x:Class="StudentNameWPF.CustomerDetail"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Customer Detail"
+    Width="800"
+    Height="450"
+    Loaded="Window_Loaded"
+    mc:Ignorable="d">
+
+    <Grid Margin="20">
+        <!--  Define Rows for Layout  -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!--  Title  -->
+            <RowDefinition Height="Auto" />
+            <!--  Full Name  -->
+            <RowDefinition Height="Auto" />
+            <!--  Telephone  -->
+            <RowDefinition Height="Auto" />
+            <!--  Email Address  -->
+            <RowDefinition Height="Auto" />
+            <!--  Birthday  -->
+            <RowDefinition Height="Auto" />
+            <!--  Status  -->
+            <RowDefinition Height="Auto" />
+            <!--  Password  -->
+            <RowDefinition Height="Auto" />
+            <!--  Buttons  -->
+        </Grid.RowDefinitions>
+
+        <!--  Title  -->
+        <TextBlock
+            x:Name="LableDetail"
+            Grid.Row="0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="DarkSlateGray"
+            Text="Customer Details" />
+
+        <!--  Full Name  -->
+        <StackPanel Grid.Row="1" Orientation="Vertical">
+            <TextBlock
+                FontSize="14"
+                Foreground="DarkSlateGray"
+                Text="Full Name:" />
+            <TextBox
+                Name="FullNameTextBox"
+                Height="30"
+                FontSize="16" />
+        </StackPanel>
+
+        <!--  Telephone  -->
+        <StackPanel Grid.Row="2" Orientation="Vertical">
+            <TextBlock
+                FontSize="14"
+                Foreground="DarkSlateGray"
+                Text="Telephone:" />
+            <TextBox
+                Name="TelephoneTextBox"
+                Height="30"
+                FontSize="16" />
+        </StackPanel>
+
+        <!--  Email Address  -->
+        <StackPanel Grid.Row="3" Orientation="Vertical">
+            <TextBlock
+                FontSize="14"
+                Foreground="DarkSlateGray"
+                Text="Email Address:" />
+            <TextBox
+                Name="EmailTextBox"
+                Height="30"
+                FontSize="16" />
+        </StackPanel>
+
+        <!--  Birthday  -->
+        <StackPanel Grid.Row="4" Orientation="Vertical">
+            <TextBlock
+                FontSize="14"
+                Foreground="DarkSlateGray"
+                Text="Birthday:" />
+            <DatePicker
+                Name="BirthdayPicker"
+                Height="30"
+                FontSize="16" />
+        </StackPanel>
+
+        <!--  Status  -->
+        <StackPanel Grid.Row="5" Orientation="Vertical">
+            <TextBlock
+                FontSize="14"
+                Foreground="DarkSlateGray"
+                Text="Status:" />
+            <ComboBox
+                x:Name="StatusCombox"
+                Height="30"
+                FontSize="16">
+                <ComboBoxItem Content="Active" />
+                <ComboBoxItem Content="Inactive" />
+            </ComboBox>
+        </StackPanel>
+
+        <!--  Password  -->
+        <StackPanel Grid.Row="6" Orientation="Vertical">
+            <TextBlock
+                FontSize="14"
+                Foreground="DarkSlateGray"
+                Text="Password:" />
+            <PasswordBox
+                x:Name="PasswordBox"
+                Height="30"
+                FontSize="16" />
+        </StackPanel>
+
+        <!--  Save / Update Button  -->
+        <StackPanel
+            Grid.Row="7"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <Button
+                Width="100"
+                Height="40"
+                Background="#4CAF50"
+                Click="SaveButton_Click"
+                Content="Save"
+                Foreground="White" />
+            <Button
+                Width="100"
+                Height="40"
+                Background="#F44336"
+                Click="CancelButton_Click"
+                Content="Cancel"
+                Foreground="White" />
+        </StackPanel>
+    </Grid>
+</Window>

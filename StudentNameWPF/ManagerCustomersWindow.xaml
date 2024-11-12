@@ -1,0 +1,97 @@
+﻿<Window
+    x:Class="StudentNameWPF.ManagerCustomersWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Manage Customers"
+    Width="800"
+    Height="450"
+    Loaded="Window_Loaded"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+
+    <Grid Margin="10">
+        <!--  Title  -->
+        <TextBlock
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="DarkSlateGray"
+            Text="Customer Management" />
+
+        <!--  DataGrid for displaying customer info  -->
+        <DataGrid
+            Name="CustomerDataGrid"
+            Height="250"
+            Margin="0,50,0,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            AutoGenerateColumns="False"
+            IsReadOnly="True"
+            SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding CustomerFullName}"
+                    Header="Customer Full Name" />
+                <DataGridTextColumn
+                    Width="125"
+                    Binding="{Binding Telephone}"
+                    Header="Telephone" />
+                <DataGridTextColumn
+                    Width="160"
+                    Binding="{Binding EmailAddress}"
+                    Header="Email" />
+                <DataGridTextColumn
+                    Width="120"
+                    Binding="{Binding CustomerBirthday}"
+                    Header="Birthday" />
+                <DataGridTextColumn
+                    Width="100"
+                    Binding="{Binding CustomerStatus}"
+                    Header="Status" />
+                <DataGridTextColumn
+                    Width="100"
+                    Binding="{Binding Password}"
+                    Header="Password" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!--  Buttons for managing customers  -->
+        <StackPanel
+            Margin="0,0,0,20"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Orientation="Horizontal">
+
+            <!--  Add Customer Button  -->
+            <Button
+                Width="150"
+                Height="40"
+                Background="#4CAF50"
+                Click="AddCustomer_Click"
+                Content="Add Customer"
+                Foreground="White" />
+
+            <!--  Edit Customer Button  -->
+            <Button
+                Width="150"
+                Height="40"
+                Background="#FFC107"
+                Click="EditCustomer_Click"
+                Content="Edit Customer"
+                Foreground="White" />
+
+            <!--  Delete Customer Button  -->
+            <Button
+                Width="150"
+                Height="40"
+                Background="#F44336"
+                Click="DeleteCustomer_Click"
+                Content="Delete Customer"
+                Foreground="White" />
+        </StackPanel>
+    </Grid>
+</Window>

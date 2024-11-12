@@ -1,0 +1,170 @@
+﻿<Window
+    x:Class="StudentNameWPF.CustomerScreen"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="FU Mini Hotel - Customer"
+    Width="1000"
+    Height="600"
+    Loaded="Window_Loaded"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--  Header  -->
+        <StackPanel
+            Grid.Row="0"
+            Margin="0,0,0,20"
+            Orientation="Horizontal">
+            <Image
+                Width="50"
+                Height="50"
+                Margin="0,0,10,0"
+                VerticalAlignment="Center"
+                Source="pack://application:,,,/Images/logo.jpg" />
+            <TextBlock
+                VerticalAlignment="Center"
+                FontSize="24"
+                FontWeight="Bold"
+                Text="FU Mini Hotel" />
+            <Border
+                Margin="20,0,0,0"
+                Padding="10,5"
+                Background="#007ACC"
+                CornerRadius="4">
+                <TextBlock
+                    ContextMenuOpening="TextBlock_ContextMenuOpening"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Text="{Binding Customer.CustomerFullName}">
+                    <!--  Add ContextMenu to display options  -->
+                    <TextBlock.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Click="ChangePassword_Click" Header="Change Password" />
+                            <MenuItem Click="Logout_Click" Header="Logout" />
+                        </ContextMenu>
+                    </TextBlock.ContextMenu>
+                </TextBlock>
+            </Border>
+
+            <!--  Button booking new room  -->
+            <Button
+                Margin="400,0,0,0"
+                Background="#007ACC"
+                Click="BookingButton_Click"
+                Content="Booking New Room"
+                Foreground="White" />
+
+        </StackPanel>
+
+        <!--  Main Content  -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!--  Personal Information  -->
+            <StackPanel Grid.Column="0" Margin="0,0,20,0">
+                <TextBlock
+                    Margin="0,0,0,10"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Text="Personal Information" />
+                <Border
+                    Padding="20"
+                    Background="White"
+                    BorderBrush="#E0E0E0"
+                    BorderThickness="1"
+                    CornerRadius="8">
+                    <StackPanel>
+                        <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
+                            <TextBlock
+                                Width="100"
+                                FontWeight="Bold"
+                                Text="Name:" />
+                            <TextBlock x:Name="NameTextBlock" Text="{Binding Customer.CustomerFullName}" />
+                        </StackPanel>
+                        <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
+                            <TextBlock
+                                Width="100"
+                                FontWeight="Bold"
+                                Text="Email:" />
+                            <TextBlock x:Name="EmailTextBlock" Text="{Binding Customer.EmailAddress}" />
+                        </StackPanel>
+                        <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
+                            <TextBlock
+                                Width="100"
+                                FontWeight="Bold"
+                                Text="Phone:" />
+                            <TextBlock x:Name="PhoneTextBlock" Text="{Binding Customer.Telephone}" />
+                        </StackPanel>
+                        <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
+                            <TextBlock
+                                Width="100"
+                                FontWeight="Bold"
+                                Text="Birthday:" />
+                            <TextBlock x:Name="BirthdayTextBlock" Text="{Binding Customer.CustomerBirthday, StringFormat='{}{0:d}'}" />
+                        </StackPanel>
+                        <Button
+                            Width="150"
+                            Margin="0,20,0,0"
+                            Background="#007ACC"
+                            Click="EditProfileButton_Click"
+                            Content="Edit Profile"
+                            Foreground="White" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <!--  Booking History  -->
+            <StackPanel Grid.Column="1" Margin="20,0,0,0">
+                <TextBlock
+                    Margin="0,0,0,10"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Text="Booking History" />
+                <Border
+                    Padding="20"
+                    Background="White"
+                    BorderBrush="#E0E0E0"
+                    BorderThickness="1"
+                    CornerRadius="8">
+                    <DataGrid
+                        x:Name="BookingHistoryDataGrid"
+                        Margin="0,10,0,0"
+                        AutoGenerateColumns="False"
+                        IsReadOnly="True"
+                        MouseDoubleClick="BookingHistoryDataGrid_MouseDoubleClick">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+                                Width="80"
+                                Binding="{Binding BookingReservationId}"
+                                Header="Booking ID" />
+                            <DataGridTextColumn
+                                Width="130"
+                                Binding="{Binding BookingDate, StringFormat='{}{0:d}'}"
+                                Header="Booking Date" />
+                            <DataGridTextColumn
+                                Width="100"
+                                Binding="{Binding TotalPrice, StringFormat='{}{0:C}'}"
+                                Header="Total Price" />
+                            <DataGridTextColumn
+                                Width="100"
+                                Binding="{Binding BookingStatus}"
+                                Header="Status" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Border>
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</Window>

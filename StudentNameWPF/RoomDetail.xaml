@@ -1,0 +1,145 @@
+﻿<Window
+    x:Class="StudentNameWPF.RoomDetail"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:StudentNameWPF"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Room Detail"
+    Width="800"
+    Height="450"
+    Loaded="Window_Loaded"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Grid Margin="20">
+        <!--  Define Rows for Layout  -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!--  Title  -->
+            <RowDefinition Height="Auto" />
+            <!--  Room Number  -->
+            <RowDefinition Height="Auto" />
+            <!--  Room Detail  -->
+            <RowDefinition Height="Auto" />
+            <!--  Room Max Capacity  -->
+            <RowDefinition Height="Auto" />
+            <!--  Room Type  -->
+            <RowDefinition Height="Auto" />
+            <!--  Room Status  -->
+            <RowDefinition Height="Auto" />
+            <!--  Room Price  -->
+            <RowDefinition Height="Auto" />
+            <!--  Buttons  -->
+        </Grid.RowDefinitions>
+
+        <!--  Title  -->
+        <TextBlock
+            x:Name="LableDetail"
+            Grid.Row="0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="DarkSlateGray"
+            Text="Room Details" />
+
+        <!--  Room Number  -->
+        <StackPanel Grid.Row="1" Orientation="Vertical">
+            <TextBlock
+                FontSize="14"
+                Foreground="DarkSlateGray"
+                Text="Room Number:" />
+            <TextBox
+                Name="RoomNumberTextBox"
+                Height="30"
+                FontSize="16" />
+        </StackPanel>
+
+        <!--  Room Detail Description  -->
+        <StackPanel Grid.Row="2" Orientation="Vertical">
+            <TextBlock
+                FontSize="14"
+                Foreground="DarkSlateGray"
+                Text="Room Detail Description:" />
+            <TextBox
+                Name="RoomDetailTextBox"
+                Height="30"
+                FontSize="16" />
+        </StackPanel>
+
+        <!--  Room Max Capacity  -->
+        <StackPanel Grid.Row="3" Orientation="Vertical">
+            <TextBlock
+                FontSize="14"
+                Foreground="DarkSlateGray"
+                Text="Room Max Capacity:" />
+            <TextBox
+                Name="RoomMaxCapacityTextBox"
+                Height="30"
+                FontSize="16" />
+        </StackPanel>
+
+        <!--  Room Type  -->
+        <StackPanel Grid.Row="4" Orientation="Vertical">
+            <TextBlock
+                FontSize="14"
+                Foreground="DarkSlateGray"
+                Text="Room Type:" />
+            <ComboBox
+                Name="RoomTypeComboBox"
+                Height="30"
+                FontSize="16" />
+
+
+        </StackPanel>
+
+        <!--  Room Status  -->
+        <StackPanel Grid.Row="5" Orientation="Vertical">
+            <TextBlock
+                FontSize="14"
+                Foreground="DarkSlateGray"
+                Text="Room Status:" />
+            <ComboBox
+                Name="RoomStatusComboBox"
+                Height="30"
+                FontSize="16">
+                <ComboBoxItem Content="Occupied" />
+                <ComboBoxItem Content="Available" />
+            </ComboBox>
+        </StackPanel>
+
+        <!--  Room Price Per Day  -->
+        <StackPanel Grid.Row="6" Orientation="Vertical">
+            <TextBlock
+                FontSize="14"
+                Foreground="DarkSlateGray"
+                Text="Room Price Per Day:" />
+            <TextBox
+                Name="RoomPriceTextBox"
+                Height="30"
+                FontSize="16" />
+        </StackPanel>
+
+        <!--  Save / Update Button  -->
+        <StackPanel
+            Grid.Row="7"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <Button
+                Width="100"
+                Height="40"
+                Background="#4CAF50"
+                Click="SaveButton_Click"
+                Content="Save"
+                Foreground="White" />
+            <Button
+                Width="100"
+                Height="40"
+                Background="#F44336"
+                Click="CancelButton_Click"
+                Content="Cancel"
+                Foreground="White" />
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,128 @@
+﻿<Window
+    x:Class="StudentNameWPF.RevenueReportWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:StudentNameWPF"
+    Title="Revenue Report"
+    Width="900"
+    Height="600"
+    WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <local:DateTimeToDateOnlyConverter x:Key="DateTimeToDateOnlyConverter" />
+    </Window.Resources>
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            Grid.Row="0"
+            Margin="0,0,0,20"
+            FontSize="24"
+            FontWeight="Bold"
+            Text="Revenue Report" />
+
+        <!--  Filter Section  -->
+        <GroupBox
+            Grid.Row="1"
+            Margin="0,0,0,20"
+            Header="Filter Options">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    Margin="0,0,10,0"
+                    VerticalAlignment="Center"
+                    Text="From Date:" />
+                <DatePicker
+                    Grid.Column="1"
+                    Margin="0,0,20,0"
+                    SelectedDate="{Binding StartDate, Mode=TwoWay, Converter={StaticResource DateTimeToDateOnlyConverter}}" />
+
+                <TextBlock
+                    Grid.Column="2"
+                    Margin="0,0,10,0"
+                    VerticalAlignment="Center"
+                    Text="To Date:" />
+                <DatePicker
+                    Grid.Column="3"
+                    Margin="0,0,20,0"
+                    SelectedDate="{Binding EndDate, Mode=TwoWay, Converter={StaticResource DateTimeToDateOnlyConverter}}" />
+                <Button
+                    Grid.Column="4"
+                    Width="120"
+                    Height="30"
+                    Command="{Binding GenerateReportCommand}"
+                    Content="Generate Report" />
+            </Grid>
+        </GroupBox>
+
+        <!--  Summary Section  -->
+        <GroupBox
+            Grid.Row="2"
+            Margin="0,0,0,20"
+            Header="Summary">
+            <StackPanel Margin="10" Orientation="Horizontal">
+                <TextBlock FontWeight="Bold" Text="Total Revenue: " />
+                <TextBlock Margin="5,0,20,0" Text="{Binding TotalRevenue, StringFormat=C}" />
+                <TextBlock FontWeight="Bold" Text="Total Bookings: " />
+                <TextBlock Margin="5,0,0,0" Text="{Binding TotalBookings}" />
+            </StackPanel>
+        </GroupBox>
+
+        <!--  Report Data Grid  -->
+        <DataGrid
+            Grid.Row="3"
+            Margin="0,0,0,20"
+            AutoGenerateColumns="False"
+            CanUserSortColumns="True"
+            IsReadOnly="True"
+            ItemsSource="{Binding ReportItems}">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Width="120"
+                    Binding="{Binding Date, StringFormat=d}"
+                    Header="Date" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding BookingCount}"
+                    Header="Number of Bookings" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Revenue, StringFormat=C}"
+                    Header="Total Revenue" />
+                <DataGridTextColumn
+                    Width="200"
+                    Binding="{Binding AverageRevenue, StringFormat=C}"
+                    Header="Average Revenue Per Booking" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!--  Export Button  -->
+        <StackPanel
+            Grid.Row="4"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
+            <Button
+                Width="120"
+                Height="30"
+                Margin="0,0,10,0"
+                Command="{Binding ExportToExcelCommand}"
+                Content="Export to Excel" />
+            <Button x:Name="CloseButton"
+                Width="120"
+                Height="30"
+                Content="Close" Click="CloseButton_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

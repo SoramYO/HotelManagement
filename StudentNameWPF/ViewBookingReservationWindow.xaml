@@ -1,0 +1,149 @@
+﻿<Window
+    x:Class="StudentNameWPF.ViewBookingReservationWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:StudentNameWPF"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="View Booking Reservation"
+    Width="800"
+    Height="600"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            Grid.Row="0"
+            Margin="0,0,0,20"
+            FontSize="24"
+            FontWeight="Bold"
+            Text="Booking Reservation Details" />
+
+        <!--  Booking Information Section  -->
+        <GroupBox
+            Grid.Row="1"
+            Margin="0,0,0,10"
+            Header="Booking Information">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    Text="Booking ID:" />
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    Text="{Binding BookingReservationId}" />
+
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    Text="Booking Date:" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    Text="{Binding BookingDate, StringFormat=d}" />
+
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    Text="Total Price:" />
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    Text="{Binding TotalPrice, StringFormat=C}" />
+
+                <TextBlock
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    Text="Booking Status:" />
+                <TextBlock
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    Text="{Binding BookingStatus}" />
+            </Grid>
+        </GroupBox>
+
+        <!--  Customer Information Section  -->
+        <GroupBox
+            Grid.Row="2"
+            Margin="0,0,0,10"
+            Header="Customer Information">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock VerticalAlignment="Center" Text="Customer:" />
+                <TextBlock
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    Text="{Binding Customer.CustomerFullName}" />
+            </Grid>
+        </GroupBox>
+
+        <!--  Booking Details Section  -->
+        <GroupBox
+            Grid.Row="3"
+            Margin="0,0,0,10"
+            Header="Room Bookings">
+            <DataGrid
+                Height="200"
+                Margin="10"
+                AutoGenerateColumns="False"
+                CanUserAddRows="False"
+                IsReadOnly="True"
+                ItemsSource="{Binding BookingDetails}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Room.RoomNumber}" Header="Room Number" />
+                    <DataGridTextColumn Binding="{Binding Room.RoomType.RoomTypeName}" Header="Room Type" />
+                    <DataGridTextColumn Binding="{Binding StartDate, StringFormat=d}" Header="Start Date" />
+                    <DataGridTextColumn Binding="{Binding EndDate, StringFormat=d}" Header="End Date" />
+                    <DataGridTextColumn Binding="{Binding ActualPrice, StringFormat=C}" Header="Price" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+
+        <!--  Close Button Section  -->
+        <StackPanel
+            Grid.Row="4"
+            Margin="0,20,0,0"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
+            <Button
+                Width="120"
+                Height="30"
+                Click="CloseButton_Click"
+                Content="Close" />
+        </StackPanel>
+    </Grid>
+</Window>

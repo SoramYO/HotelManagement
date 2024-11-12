@@ -1,0 +1,96 @@
+﻿<Window
+    x:Class="StudentNameWPF.AdminWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Admin Dashboard"
+    Width="800"
+    Height="450"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+
+    <Grid>
+        <!--  Title  -->
+        <TextBlock
+            Margin="0,20,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="{DynamicResource PrimaryHueMidBrush}"
+            Text="Admin Dashboard" />
+
+        <!--  Card Container  -->
+        <materialDesign:Card
+            Width="500"
+            Margin="0,50,0,0"
+            Padding="20"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Background="{DynamicResource MaterialDesignPaper}">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!--  Panel 1: Customer Management  -->
+                <StackPanel Grid.Row="0" Orientation="Vertical">
+                    <Button
+                        Height="60"
+                        Background="{DynamicResource PrimaryHueLightBrush}"
+                        BorderBrush="{DynamicResource PrimaryHueLightBrush}"
+                        BorderThickness="1"
+                        Click="ManageCustomers_Click"
+                        Content="Quản lý thông tin khách hàng"
+                        FontSize="18"
+                        Foreground="{DynamicResource MaterialDesignBody}" />
+                </StackPanel>
+
+                <!--  Panel 2: Room Management  -->
+                <StackPanel Grid.Row="1" Orientation="Vertical">
+                    <Button
+                        Height="60"
+                        Background="{DynamicResource PrimaryHueLightBrush}"
+                        BorderBrush="{DynamicResource PrimaryHueLightBrush}"
+                        BorderThickness="1"
+                        Click="ManageRooms_Click"
+                        Content="Quản lý thông tin phòng"
+                        FontSize="18"
+                        Foreground="{DynamicResource MaterialDesignBody}" />
+                </StackPanel>
+
+                <!--  Panel 3: Reservation Management  -->
+                <StackPanel Grid.Row="2" Orientation="Vertical">
+                    <Button
+                        Height="60"
+                        Background="{DynamicResource PrimaryHueLightBrush}"
+                        BorderBrush="{DynamicResource PrimaryHueLightBrush}"
+                        BorderThickness="1"
+                        Click="ManageReservations_Click"
+                        Content="Quản lý đặt phòng"
+                        FontSize="18"
+                        Foreground="{DynamicResource MaterialDesignBody}" />
+                </StackPanel>
+
+                <!--  Panel 4: Report Generation  -->
+                <StackPanel Grid.Row="3" Orientation="Vertical">
+                    <Button
+                        Height="60"
+                        Background="{DynamicResource PrimaryHueLightBrush}"
+                        BorderBrush="{DynamicResource PrimaryHueLightBrush}"
+                        BorderThickness="1"
+                        Click="GenerateReports_Click"
+                        Content="Tạo báo cáo thống kê"
+                        FontSize="18"
+                        Foreground="{DynamicResource MaterialDesignBody}" />
+                </StackPanel>
+            </Grid>
+        </materialDesign:Card>
+    </Grid>
+</Window>
