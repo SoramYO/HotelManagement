@@ -24,10 +24,12 @@ namespace StudentNameWPF
             Customer.EmailAddress = EmailTextBox.Text;
             Customer.CustomerBirthday = DateOnly.Parse(BirthdayDatePicker.Text);
             _customerService.UpdateCustomer(Customer);
-            CustomerScreen customerScreen = new();
+            CustomerScreen customerScreen = new CustomerScreen();
             customerScreen.Customer = Customer;
+            customerScreen.Show();
             MessageBox.Show("Profile Updated");
             Close();
+
 
         }
 

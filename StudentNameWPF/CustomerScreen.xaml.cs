@@ -12,6 +12,7 @@ namespace StudentNameWPF
     {
         public Customer Customer { get; set; }
         private readonly BookingReservationService _bookingReservationService = new();
+        private readonly CustomerService _customerService = new();
 
         public CustomerScreen()
         {
@@ -22,9 +23,14 @@ namespace StudentNameWPF
         private void EditProfileButton_Click(object sender, RoutedEventArgs e)
         {
             CustomerInfo customerInfo = new();
+            customerInfo.Owner = this;
             customerInfo.Customer = Customer;
+            Hide();
             customerInfo.ShowDialog();
+
+            Close();
         }
+
 
         private void BookingButton_Click(object sender, RoutedEventArgs e)
         {
@@ -43,6 +49,7 @@ namespace StudentNameWPF
         {
             BookingHistoryDataGrid.ItemsSource = null;
             BookingHistoryDataGrid.ItemsSource = _bookingReservationService.GetAllBookingsByCustomerId(Customer.CustomerId);
+            Customer = _customerService.GetCustomerById(Customer.CustomerId);
 
         }
         private void ChangePassword_Click(object sender, RoutedEventArgs e)
@@ -50,6 +57,7 @@ namespace StudentNameWPF
             ChangePassword changePassword = new();
             changePassword.Customer = Customer;
             changePassword.ShowDialog();
+            LoadData();
 
         }
 
