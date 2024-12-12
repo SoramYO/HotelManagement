@@ -20,7 +20,7 @@ namespace StudentNameWPF
         public int BookingReservationId => _booking.BookingReservationId;
         public DateOnly BookingDate => _booking.BookingDate!.Value;
         public decimal TotalPrice => decimal.Parse(_booking.TotalPrice!.ToString()!);
-        public string BookingStatus => _booking.BookingStatus == 1 ? "Active" : "Cancelled";
+        public string BookingStatus => _booking.BookingStatus == 1 ? "Active" : "Pending";
         public Customer Customer => _booking.Customer!;
         public ICollection<BookingDetail> BookingDetails => _booking.BookingDetails!;
 
@@ -31,5 +31,7 @@ namespace StudentNameWPF
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+
     }
 }

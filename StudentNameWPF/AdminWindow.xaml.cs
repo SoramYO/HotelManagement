@@ -32,7 +32,7 @@ namespace StudentNameWPF
             managerBookingReservationWindow.Show();
         }
 
-        private void GenerateReports_Click(object sender, RoutedEventArgs e)
+        private void ReportGeneration_Click(object sender, RoutedEventArgs e)
         {
             RevenueReportWindow revenueReportWindow = new RevenueReportWindow(context);
             revenueReportWindow.Show();

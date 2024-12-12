@@ -1,4 +1,5 @@
-﻿using FUMiniHotelDAL.Models;
+﻿using FUMiniHotelBLL;
+using FUMiniHotelDAL.Models;
 using System.Windows;
 
 namespace StudentNameWPF
@@ -8,7 +9,10 @@ namespace StudentNameWPF
     /// </summary>
     public partial class ViewBookingReservationWindow : Window
     {
+
+        private BookingReservationService _service = new();
         public BookingReservation Booking { get; set; }
+
         public ViewBookingReservationWindow(BookingReservation booking)
         {
             InitializeComponent();
@@ -20,5 +24,13 @@ namespace StudentNameWPF
         {
             Close();
         }
+        private void CheckInButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            _service.UpdateBookingReservationStatus(Booking.BookingReservationId);
+            MessageBox.Show("Check-in successful");
+            Close();
+        }
+
     }
 }

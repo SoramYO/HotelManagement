@@ -23,5 +23,15 @@ namespace FUMiniHotelBLL
             return _roomRepository.GetBookingById(booking);
         }
 
+        public void UpdateBookingReservationStatus(int id)
+        {
+            var update = _roomRepository.GetById(id);
+            if (update != null)
+            {
+                update.BookingStatus = 1;
+                _roomRepository.Update(update);
+            }
+        }
+
     }
 }

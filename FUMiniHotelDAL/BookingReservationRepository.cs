@@ -41,5 +41,18 @@ namespace FUMiniHotelDAL
                 .FirstOrDefault(x => x.BookingReservationId == bookingId);
             return booking;
         }
+
+        public BookingReservation? GetById(int id)
+        {
+            _context = new();
+            return _context.BookingReservations.FirstOrDefault(x => x.BookingReservationId == id);
+        }
+
+        public void Update(BookingReservation reservation)
+        {
+            _context = new();
+            _context.BookingReservations.Update(reservation);
+            _context.SaveChanges();
+        }
     }
 }

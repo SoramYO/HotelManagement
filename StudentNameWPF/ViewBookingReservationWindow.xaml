@@ -28,6 +28,12 @@
             FontSize="24"
             FontWeight="Bold"
             Text="Booking Reservation Details" />
+        <Button
+            Width="100"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Click="CheckInButton_Click"
+            Content="Check In" />
 
         <!--  Booking Information Section  -->
         <GroupBox

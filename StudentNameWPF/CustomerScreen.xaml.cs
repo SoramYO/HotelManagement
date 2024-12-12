@@ -20,7 +20,7 @@ namespace StudentNameWPF
             DataContext = this;
         }
 
-        private void EditProfileButton_Click(object sender, RoutedEventArgs e)
+        private void EditCustomer_Click(object sender, RoutedEventArgs e)
         {
             CustomerInfo customerInfo = new();
             customerInfo.Owner = this;
